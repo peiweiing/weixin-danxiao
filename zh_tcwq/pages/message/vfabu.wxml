@@ -1,0 +1,21 @@
+<!--zh_tcwq/pages/message/vfabu.wxml-->
+<form bindsubmit="formSubmit">
+  <view class="divcs">
+    <input name="title" placeholder="请输入标题"></input>
+    <input name="time" type="time" placeholder="请输入工作时间"></input>
+    <input name="site" placeholder="请输入工作地址"></input>
+    <input name="way" placeholder="请输入结算方式"></input>
+    <input name="wage" placeholder="请输入每天工资"></input>
+  </view>
+  <view class="divcs">
+    <!-- <input placeholder="请输入工作内容和要求"></input> -->
+    <textarea name="alt" placeholder="请输入工作内容和要求"></textarea>
+  </view>
+  <view class="divcs">
+    <text style="font-size:12px">联系方式：</text>
+    <input name="qq" placeholder="QQ(选填)"></input>
+    <input name="weixin" placeholder="微信(选填)"></input>
+    <input name="tel" type="number" placeholder="联系电话(选填)"></input>
+  </view>
+  <button formType="submit">发布</button>
+</form>

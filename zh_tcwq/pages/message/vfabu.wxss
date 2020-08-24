@@ -1,0 +1,21 @@
+/* zh_tcwq/pages/message/vfabu.wxss */
+.divcs{
+  margin: 0 2%;
+}
+.divcs input{
+  height: 60rpx;
+}
+.divcs input,textarea{
+  background-color: #fff;
+  margin: 2% 0;
+  padding: 1% 10rpx;
+  width: 100%;
+  box-sizing: border-box;
+}
+button{
+  background-color: rgb(71, 169, 107);
+  color: #fff;
+  outline:none;
+  border: none;
+  border-radius: 10rpx;
+}

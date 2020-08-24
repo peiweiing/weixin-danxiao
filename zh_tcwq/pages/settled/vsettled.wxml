@@ -1,0 +1,32 @@
+<!--zh_tcwq/pages/settled/vsettled.wxml-->
+<form bindsubmit="formSubmit">
+  <view class="divcs">
+    <input name="title" bindinput="vtitle" placeholder="请输入标题"></input>
+    <!-- <input placeholder="请输入描述"></input> -->
+    <textarea name="alt"  bindblur="valt" placeholder="请输入描述"></textarea>
+    <input name="price" bindinput="vprice" placeholder="请输入价格"></input>
+    <!-- <picker name="type" bindchange="vtype" value="{{index}}" range="{{array}}">
+      <view class="picker">
+        选择类型：{{array[index]}}
+      </view>
+    </picker> -->
+  </view>
+  <view class="divcs">
+    <text style="font-size:14px">联系方式：</text>
+    <input name="qq" bindinput="vqq" placeholder="QQ(选填)"></input>
+    <input name="weixin" bindinput="vweixin" placeholder="微信(选填)"></input>
+    <input name="tel" type="number" bindinput="vtel" placeholder="联系电话(选填)"></input>
+    <!-- <view class="imgcs">
+      <image src="../image/加.png"></image>
+    </view> -->
+    
+    <view class="imgcs">
+      <view wx:for="{{pics}}" wx:key="" >
+        <image name="logo" bindtap="upimg" src="{{item}}"></image>
+        <image src="../image/close.png" class="deimg" data-img="{{item}}" bindtap='deleteImg'></image>
+      </view>
+      <image src="../image/jia.png" class="upimg {{isShow?'true':'hideTrue'}}" bindtap='uploadImage' ></image>
+    </view>
+  </view>
+  <button formType="submit">发布</button>
+</form>

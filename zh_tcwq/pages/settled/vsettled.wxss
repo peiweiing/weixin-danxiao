@@ -1,0 +1,80 @@
+/* zh_tcwq/pages/settled/vsettled.wxss */
+
+.divcs{
+  margin: 0 2%;
+}
+.divcs input{
+  height: 60rpx;
+}
+.divcs input,textarea,.picker{
+  background-color: #fff;
+  margin: 2% 0;
+  padding: 1% 10rpx;
+  width: 100%;
+  box-sizing: border-box;
+}
+.divcs image{
+  width: 150rpx;
+  height: 150rpx;
+}
+
+.divcs .imgcs{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  margin: 5% 0;
+  padding: 1% 10rpx;
+}
+.divcs .imgcs .deimg{
+  position: relative;
+  bottom: 125rpx;
+  right: 25rpx;
+  width: 50rpx;
+  height: 50rpx;
+}
+.divcs .imgcs .upimg{
+  padding: 5%;
+  box-sizing: border-box;
+  background-color: rgb(214, 214, 214);
+}
+.hideTrue {
+  display: none
+ }
+ .true {
+  display: block
+ }
+
+
+
+button{
+  background-color: rgb(71, 169, 107);
+  color: #fff;
+  outline:none;
+  border: none;
+  border-radius: 10rpx;
+}
+
+
+/* .contant-pic{
+  width: 94%;
+  margin: 0 auto;
+  height:80rpx;
+ }
+ .pics-list{
+    width:80rpx;
+    height:80rpx;
+    float:left;
+    margin-right:10rpx;
+ }
+ .uploadImg{
+    width:80rpx;
+    height:80rpx;
+ }
+ .divcs .uploadImg-error{
+    height:50rpx;
+    width:50rpx;
+    position:relative;
+    top:-110rpx;
+    left:60rpx;
+ } */

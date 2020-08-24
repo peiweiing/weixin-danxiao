@@ -1,0 +1,74 @@
+@import "../../app.wxss";
+
+@import "../pages/index/index.wxss";
+
+.store-cell {
+    padding: 0 30rpx 30rpx;
+    background: #fff;
+    font-size: 30rpx;
+}
+
+.flex-raw {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.flex-raw .img {
+    width: 150rpx;
+    height: 120rpx;
+    margin: 20rpx 10rpx 0 10rpx;
+}
+
+.gobyndmulit {
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 6;
+}
+
+
+
+
+/**/
+
+.vdiv{
+    width: 90%;
+    height: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2% 4%;
+}
+.vdiv text:first-child{
+    width: 80%;color: #000;font-weight:bolder;font-size: 20px;margin-right: 1%;
+    overflow:hidden;/*溢出隐藏*/
+    white-space:nowrap; /*不换行*/
+    text-overflow:ellipsis;/*超出部分显示省略号*/
+    -o-text-overflow:ellipsis;
+}
+.vdiv text:last-child{
+    color: red;font-weight: bolder;font-size: 16px;
+}
+
+.vdivcs image{
+    /* width: 80%; */
+    width: 100%;
+    /* height: 80%; */
+    height: 400rpx;
+}
+.vdivcs .text{
+    margin: 0;
+    padding: 0;
+    margin: 5% 2%;
+    height: 5rem;
+    word-wrap:break-word;
+    word-break:break-all;
+    overflow:hidden;/*溢出隐藏*/
+    text-overflow:ellipsis;/*超出部分显示省略号*/
+    display:-webkit-box;/*弹性盒*/
+    -webkit-box-orient:vertical;/*设置对象内元素的排列方式为垂直*/
+    -webkit-line-clamp:3;/*限制块元素文本行数*/
+}
