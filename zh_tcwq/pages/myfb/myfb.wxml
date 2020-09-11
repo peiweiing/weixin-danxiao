@@ -1,0 +1,33 @@
+<!--zh_tcwq/pages/myfb/myfb.wxml-->
+<view class="box">
+  <view class="divcs" wx:for="{{arr}}">
+    <view class="div" data-index="{{item.id}}" data-types="{{item.type_id}}">
+      <view class="title" wx:if='{{item.type_id==1}}'>勤工俭学</view>
+      <view class="title" wx:if='{{item.type_id==2}}'>失物招领</view>
+      <view class="title" wx:if='{{item.type_id==3}}'>二手闲置</view>
+      <view class="title" wx:if='{{item.type_id==4}}'>租房信息</view>
+      <view class="title" wx:if='{{item.type_id==5}}'>跑腿代购</view>
+      <view class="title" wx:if='{{item.type_id==10}}'>拼车</view>
+      <view class="title" wx:if='{{item.type_id==6}}'>表白墙</view>
+      <view class="title" wx:if='{{item.type_id==7}}'>社团活动</view>
+      <view class="title" wx:if='{{item.type_id==8}}'>求助帖</view>
+      <view class="title" wx:if='{{item.type_id==9}}'>吐槽贴</view>
+
+      <view class="imgcs" wx:if='{{item.type_id!=10}}'>
+        <view class="imgs">
+          <image class="img" src="{{urls}}{{item.img}}"></image>
+        </view>
+      </view>
+
+      <text class="text">{{item.details}}</text>
+      <view class="textcs" wx:if='{{item.type_id==10}}'>
+        <text class="text">出发地：{{item.start_place}}</text>
+        <text class="text">目的地：{{item.end_place}}</text>
+      </view>
+    </view>
+    <view class="but">
+      <button bindtap="redact" data-index="{{item.id}}" data-types="{{item.type_id}}">编辑</button>
+      <button bindtap="close" data-index="{{item.id}}" data-types="{{item.type_id}}">删除</button>
+    </view>
+  </view>
+</view>

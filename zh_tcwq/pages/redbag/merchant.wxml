@@ -88,7 +88,7 @@
         <view class="flex2 secbox">
             <view bindtap="fuck" class="seclist">
                 <image class="secimg" src="../image/upload.png"></image>
-                <view class="sectext">发布商品</view>
+                <view class="sectext">信息商品</view>
             </view>
             <view bindtap="mine_shop" class="seclist">
                 <image class="secimg" src="../image/mine_shop.png"></image>
@@ -105,7 +105,7 @@
         <view class="flex2 secbox">
             <view bindtap="fptsp" class="seclist">
                 <image class="secimg" src="../image/upload.png"></image>
-                <view class="sectext">发布商品</view>
+                <view class="sectext">信息商品</view>
             </view>
             <view bindtap="wptsp" class="seclist">
                 <image class="secimg" src="../image/mine_shop.png"></image>
@@ -130,7 +130,7 @@
         <view class="flex2 secbox">
             <view class="seclist">
                 <image bindtap="fbyhq" class="secimg" mode="aspectFill" src="../image/satubia1o@2x.png"></image>
-                <view class="sectext">发布券</view>
+                <view class="sectext">信息券</view>
             </view>
             <view class="seclist">
                 <image bindtap="hxyhq" class="secimg" mode="aspectFill" src="../image/hunqing.png"></image>
@@ -147,7 +147,7 @@
         <view class="flex2 secbox">
             <view bindtap="fqgsp" class="seclist">
                 <image class="secimg" src="../image/upload.png"></image>
-                <view class="sectext">发布商品</view>
+                <view class="sectext">信息商品</view>
             </view>
             <view bindtap="wqgsp" class="seclist">
                 <image class="secimg" src="../image/mine_shop.png"></image>

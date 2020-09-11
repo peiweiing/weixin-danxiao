@@ -58,7 +58,7 @@
             </view>
         </view>
         <view bindtap="see" class="content_chakan" data-id="{{item.tz.id}}">
-            <view class="content_info time1">{{item.tz.time}}发布</view>
+            <view class="content_info time1">{{item.tz.time}}信息</view>
             <view class="content_info" wx:if="{{item.tz.lat!=''}}">离你{{item.tz.juli}}</view>
         </view>
         <view bindtap="see" class="content_chakan" data-id="{{item.tz.id}}">

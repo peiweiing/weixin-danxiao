@@ -136,7 +136,7 @@
 </form>
 <view class="zhezhao" hidden="{{fwxy}}"></view>
 <view class="kcrzxy" hidden="{{fwxy}}">
-    <view class="kcrzxyhd">商品发布协议</view>
+    <view class="kcrzxyhd">商品信息协议</view>
     <scroll-view scrollY class="kcrzxybd" style="height: 600rpx;">
         <rich-text nodes="{{ptxx.kq_agreement}}"></rich-text>
     </scroll-view>

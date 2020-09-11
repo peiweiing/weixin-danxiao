@@ -1,5 +1,5 @@
 {
-    "navigationBarTitleText": "发布商品",
+    "navigationBarTitleText": "信息商品",
     "enablePullDownRefresh": true,
     "usingComponents": {
         "store-cell": "/zh_tcwq/component/store-cell",

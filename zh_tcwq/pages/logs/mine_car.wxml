@@ -6,7 +6,7 @@
                 <image class="daoda" src="../image/282792329038474488.png"></image>
                 <view class="gobyndsingle {{item.class3}}" style="max-width:150rpx">{{item.end_place}}</view>
             </view>
-            <view class="banner_time {{item.class3}}">{{item.time}} 发布</view>
+            <view class="banner_time {{item.class3}}">{{item.time}} 信息</view>
         </view>
         <view class="flex-bet banner_menu">
             <view bindtap="shuninfo" class="flex-center banner_content">
@@ -75,7 +75,7 @@
         <view class="rel">
             <image class="ab lr" mode="scaleToFill" src="../image/release-car.png"></image>
         </view>
-        <view style="color:#333">我要发布</view>
+        <view style="color:#333">我要信息</view>
     </view>
     <view bindtap="mine_yellow">
         <view class="rel">

@@ -1,6 +1,6 @@
 <form bindreset="formReset" bindsubmit="formSubmit" reportSubmit="true">
     <view class="header" style="background:{{color}}">
-        <view class="header_title">发布{{info}}信息</view>
+        <view class="header_title">信息{{info}}信息</view>
     </view>
     <view class="content">
         <view class="content_miao">内容描述</view>

@@ -42,7 +42,7 @@
         </button>
         <view bindtap="fbxx" class="flex3">
             <image class="ibanimg" src="../image/satubia1o@2x.png"></image>
-            <view>发布信息</view>
+            <view>信息信息</view>
         </view>
         <view bindtap="gdzx" class="flex3">
             <image class="ibanimg" src="../image/tubiao@2x.png"></image>

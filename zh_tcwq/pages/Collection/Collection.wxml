@@ -32,7 +32,7 @@
                     <image src="{{url}}{{item}}" wx:for="{{item.img1}}"></image>
                 </view>
                 <view class="content_chakan">
-                    <view class="content_info">{{item.time}}发布</view>
+                    <view class="content_info">{{item.time}}信息</view>
                     <view bindtap="see" class="content_info2" data-id="{{item.id}}">查看详情>></view>
                 </view>
             </view>

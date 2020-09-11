@@ -906,11 +906,14 @@ body {
 }
 
 .content {
-    width: 100%;
+    /* width: 100%; */
     padding: 30rpx;
     background-color: white;
     margin-top: 20rpx;
+    margin: 2%;
     box-sizing: border-box;
+    border-radius: 20rpx;
+    box-shadow: 0 0 10rpx #999;
 }
 
 .weui-tab__content {
@@ -919,7 +922,7 @@ body {
 
 .content_left {
     display: flex;
-    align-items: center;
+    /* align-items: center; */
 }
 
 .content_top {

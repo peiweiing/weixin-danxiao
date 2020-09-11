@@ -195,7 +195,7 @@ App({
                     }, {
                         logo: "/zh_tcwq/pages/image/fabu.png",
                         logo2: "/zh_tcwq/pages/image/fabu.png",
-                        title: "发布",
+                        title: "信息",
                         title_color: "#f44444",
                         title_color2: "#888",
                         url: "/zh_tcwq/pages/fabu/fabu/fabu"

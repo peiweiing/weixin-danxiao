@@ -249,7 +249,7 @@ Page({
                 var a = t.data;
                 0 == t.data.length && wx.showModal({
                     title: "提示",
-                    content: "平台暂未添加分类，无法发布商品",
+                    content: "平台暂未添加分类，无法信息商品",
                     success: function(t) {
                         wx.navigateBack({});
                     }

@@ -3,7 +3,7 @@ var app = getApp();
 Page({
     data: {
         statusList:[//切换状态按钮
-            {"statusName":"按发布时间排序","id":"start_time"},
+            {"statusName":"按信息时间排序","id":"start_time"},
             {"statusName":"按出发时间排序","id":"time"},
         ],
         isChecked: 0, //判断是否选中

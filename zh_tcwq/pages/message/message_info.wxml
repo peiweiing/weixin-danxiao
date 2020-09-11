@@ -20,10 +20,10 @@
                 </view>
                 <view>
                     <text wx:if="{{info.m<24}}">
-                        <text wx:if="{{info.m==0}}">{{info.h}}分钟前发布</text>
-                        <text wx:if="{{info.m>0}}">{{info.m}}小时前发布</text>
+                        <text wx:if="{{info.m==0}}">{{info.h}}分钟前信息</text>
+                        <text wx:if="{{info.m>0}}">{{info.m}}小时前信息</text>
                     </text>
-                    <text wx:if="{{info.m>=24}}">{{info.time}}  发布</text>
+                    <text wx:if="{{info.m>=24}}">{{info.time}}  信息</text>
                 </view>
             </view>
         </view>

@@ -95,6 +95,7 @@ Page({
         });
     },
     jumps: function(t) {
+        var iid = t.currentTarget.dataset.id, nna = t.currentTarget.dataset.name;
         var e = this, a = (t.currentTarget.dataset.name, t.currentTarget.dataset.appid), n = t.currentTarget.dataset.src, i = t.currentTarget.dataset.id, s = t.currentTarget.dataset.sjtype;
         console.log(i, s);
         console.log(t.currentTarget);
@@ -102,10 +103,10 @@ Page({
         if (1 == o) {
             if (console.log(n), "../distribution/jrhhr" == n) return e.redinfo(), !1;
             if ("../store/store" == n) return wx.reLaunch({
-                url: "../store/store"
+                url: "../store/store?id=" + iid + "&name=" + nna
             }), !1;
             if ("../fabu/fabu/fabu" == n) return wx.reLaunch({
-                url: "../fabu/fabu/fabu"
+                url: "../fabu/fabu/fabu?id=" + iid + "&name=" + nna
             }), !1;
             if ("../logs/logs" == n) return wx.reLaunch({
                 url: "../logs/logs"

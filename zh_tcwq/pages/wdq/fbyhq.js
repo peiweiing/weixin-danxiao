@@ -231,7 +231,7 @@ Page({
             success: function(t) {
                 console.log(t), 0 == t.data.length && wx.showModal({
                     title: "提示",
-                    content: "平台暂未添加分类，无法发布",
+                    content: "平台暂未添加分类，无法信息",
                     success: function(t) {
                         wx.navigateBack({});
                     }

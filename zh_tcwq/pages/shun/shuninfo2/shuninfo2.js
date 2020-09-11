@@ -130,7 +130,7 @@ Page({
     },
     shouye: function(e) {
         console.log(e), wx.reLaunch({
-            url: "../../index/index",
+            url: "../../shun/shun",
             success: function(e) {},
             fail: function(e) {},
             complete: function(e) {}
@@ -161,7 +161,7 @@ Page({
         wx.getStorageSync("users").id;
         return {
             title: this.data.yellow_info.company_name,
-            path: "/zh_tcwq/pages/shun/shuninfo2/shuninfo2?id=" + this.data.pc.id + "&iszf=1",
+            path: "/zh_tcwq/pages/shun/shuninfo2/shuninfo?id=" + this.data.pc.id + "&iszf=1",
             success: function(e) {},
             fail: function(e) {}
         };

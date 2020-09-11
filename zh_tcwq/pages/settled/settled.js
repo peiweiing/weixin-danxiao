@@ -764,7 +764,7 @@ Page({
                         cityname: R
                     },
                     success: function(e) {
-                        console.log("这里是发布成功"), console.log(e);
+                        console.log("这里是信息成功"), console.log(e);
                         var t = e.data;
                         console.log(t), app.util.request({
                             url: "entry/wxapp/rzmessage",
@@ -849,7 +849,7 @@ Page({
                                             cityname: R
                                         },
                                         success: function(e) {
-                                            console.log("这里是发布成功"), console.log(e);
+                                            console.log("这里是信息成功"), console.log(e);
                                             var t = e.data;
                                             app.util.request({
                                                 url: "entry/wxapp/rzmessage",

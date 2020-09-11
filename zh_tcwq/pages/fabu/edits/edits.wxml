@@ -2,7 +2,7 @@
     <view class="content">
         <view class="content_miao">内容描述</view>
         <view class="miaoshu_box">
-            <textarea class="miaoshu" maxlength="540" name="content" value="{{arr[0].details}}" placeholder="请输入内容描述（最多540字符）"></textarea>
+            <textarea class="miaoshu" maxlength="540" name="content" placeholder="请输入内容描述（最多540字符" value="{{arr[0].details}}"></textarea>
         </view>
     </view>
     <view class="upload">
@@ -26,70 +26,56 @@
         <view bindtap="label" class="{{item.click_class}}" data-id="{{item.id}}" data-inde="{{index}}" style="border-color:{{System.color}};color:{{item.click_class=='selected1'?System.color:'#fff'}};background:{{item.click_class=='selected1'?'':System.color}}" wx:for="{{label}}" wx:key="*this">{{item.label_name}}</view>
     </view>
     <view class="banner">
-        <!-- <view class="banner_list border flex-center">
+        <view class="banner_list border flex-center">
             <view class="banner_name">联系人：</view>
             <input class="banner_text" name="name" placeholderStyle="color:#999;font-size:28rpx;" value="{{arr[0].user_name}}"></input>
         </view>
         <view class="banner_list2 border  flex-center">
             <view class="banner_name">联系方式：</view>
-            <input class="banner_text" name="tel" placeholder="请输入您的联系方式" value="{{arr[0].user_tel}}" placeholderStyle="color:#999;font-size:28rpx;" type="number"></input>
-        </view> -->
-        <view class="banner_fuli flex-bet" wx:if='{{types==6}}'>
-            <view style="font-size:28rpx;">是否匿名</view>
-            <switch bindchange="typeid6" checked="{{typeid}}"></switch>
+            <input class="banner_text" name="tel" value="{{arr[0].user_tel}}" placeholder="请输入您的联系方式" placeholderStyle="color:#999;font-size:28rpx;" type="number"></input>
         </view>
-
-        <input style="display:none" name="nnmm" value="1"></input>
-
-        <view class="banner_list3 flex-center" wx:if="{{System.is_tzdz=='1'}}">
-            <view class="banner_name">具体位置</view>
+        
+        <view class="banner_list3 flex-center" wx:if='{{types==4}}'>
+            <view class="banner_name">价格：</view>
             <view style="flex:1">
-                <input name="dzaddress" placeholder="输入地址或点击地图选择-->" value="{{address}}"></input>
-            </view>
-            <image bindtap="add" class="dt" src="../../image/address3.png"></image>
-        </view>
-        <view class="weui-cells weui-cells_after-title" wx:if="{{System.is_qgb=='1'}}">
-            <view class="weui-cell">
-                <view class="weui-cell__hd weui-cell__hd_in-select-after" style="padding:0rpx;">
-                    <view class="weui-label">信息地区</view>
-                </view>
-                <view class="weui-cell__bd">
-                    <picker bindchange="bindCountryChange" range="{{countries}}" value="{{countryIndex}}">
-                        <view class="weui-select weui-select_in-select-after">{{countries[countryIndex]}}</view>
-                    </picker>
-                </view>
+                <input name="price" placeholder="请输入价格" value="{{arr[0].price}}"></input>
             </view>
         </view>
-        <view class="banner_list3 flex-center" hidden="{{isios&&System.is_pgzf=='2'}}" style="border-top:1rpx solid #e5e5e5;" wx:if="{{money>0}}">
-            <view class="banner_name">信息费用：</view>
-            <view class="banner_text" wx:if="{{money>0}}">{{money}}元<text wx:if="{{System.is_qgb=='1'}}">({{countries[countryIndex]}})</text>
+        <view class="banner_list3 flex-center" wx:if='{{types==2}}'>
+            <view class="banner_name">丢失地点：</view>
+            <view style="flex:1">
+                <input name="dzaddress" placeholder="请输入丢失地点" value="{{arr[0].address}}"></input>
             </view>
-            <view class="banner_text" wx:else>免费</view>
         </view>
+        <view wx:if='{{types==5}}'>
+            <view class="banner_list border flex-center">
+                <view class="banner_name">跑腿费：</view>
+                <input class="banner_text" name="cost" placeholder="请输入跑腿费用" placeholderStyle="color:#999;font-size:28rpx;" value="{{arr[0].cost}}"></input>
+            </view>
+            <view class="banner_list border flex-center">
+                <view class="banner_name">出发地：</view>
+                <input class="banner_text" name="start" placeholder="请输入出发地" placeholderStyle="color:#999;font-size:28rpx;" value="{{arr[0].start}}"></input>
+            </view>
+            <view class="banner_list border flex-center">
+                <view class="banner_name">目的地：</view>
+                <input class="banner_text" name="dest" placeholder="请输入目的地" placeholderStyle="color:#999;font-size:28rpx;" value="{{arr[0].dest}}"></input>
+            </view>
+        </view>
+
     </view>
-    <!-- <view class="banner" hidden="{{isios&&System.is_pgzf=='2'}}">
-        <view class="banner_fuli flex-bet">
-            <view style="font-size:28rpx;">是否置顶</view>
-            <switch bindchange="switch1Change" checked="{{iszdchecked}}"></switch>
-        </view>
-        <view class="banner_list3 flex-center" style="border-top:1rpx solid #e5e5e5;color:#ED414A" wx:if="{{stick_none==true}}">
-            <view class="banner_name">置顶：</view>
-            <view class="banner_text" wx:if="{{money1>0}}">{{stick_info}}{{money1}}元)({{countries[countryIndex]}})</view>
-            <view class="banner_text" wx:else>免费</view>
-        </view>
-    </view> -->
+
     <label bindtap="checkboxChange" class="weui-cell weui-check__label">
         <view class="weui-cell__hd weui-check__hd_in-checkbox">
             <icon class="weui-icon-checkbox_circle" size="21" type="circle" wx:if="{{!radiochecked}}"></icon>
             <icon class="weui-icon-checkbox_success" color="{{System.color}}" size="21" type="success" wx:if="{{radiochecked}}"></icon>
         </view>
         <view catchtap="know" class="weui-cell__bd">我已阅读并同意
-            <text style="color:{{System.color}}">《信息须知》</text>
+      <text style="color:{{System.color}}">《发帖须知》</text>
         </view>
     </label>
     <view class="banner" style="height:150rpx;background:#F2F2F2"></view>
     <button class="confirm" disabled="{{disabled}}" formType="submit" style="background:{{System.color}}">确认信息</button>
-    <view class="base" wx:if="{{checked==true}}">
+    <!-- <view class="base" wx:if="{{checked==true}}">
         <view class="rel" style="background:{{System.color}}">选择置顶让更多人看到</view>
         <block wx:if="{{countryIndex==0}}">
             <block wx:for="{{stick}}" wx:key="*this">
@@ -104,13 +90,13 @@
             </block>
         </block>
         <view bindtap="cancel" class="rel">取消置顶</view>
-    </view>
+    </view> -->
 </form>
-<view class="zhezhao" wx:if="{{know==true}}"></view>
+<!-- <view class="zhezhao" wx:if="{{know==true}}"></view>
 <view class="kcrzxy" wx:if="{{know==true}}">
     <view class="kcrzxyhd" style="background:{{System.color}}">信息须知</view>
     <scroll-view scrollY class="kcrzxybd" style="height: 600rpx;">
         <rich-text nodes="{{System.ft_xuz}}"></rich-text>
     </scroll-view>
     <view bindtap="know" class="queren" style="background:{{System.color}}">确定</view>
-</view>
+</view> -->

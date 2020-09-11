@@ -36,7 +36,7 @@
         </view>
         <view class="append">
             <view>
-                <button formType="submit" style="background:{{color}}">发布</button>
+                <button formType="submit" style="background:{{color}}">信息</button>
             </view>
         </view>
     </view>

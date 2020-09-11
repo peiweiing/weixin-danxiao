@@ -83,7 +83,7 @@
                 <view class="shuxian"></view>
                 <text>留言</text>
             </view>
-            <view class="fabu">发布留言</view>
+            <view class="fabu">信息留言</view>
         </view>
         <view class="messagelist">
             <image class="usertouxiang" src="../image/card.png"></image>

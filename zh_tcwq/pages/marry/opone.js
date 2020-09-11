@@ -10,7 +10,9 @@ Page({
         page: 1,
         page1: 1,
         tie: [],
-        tie1: []
+        tie1: [],
+        iid:'',
+
     },
     hdsy: function(t) {
         wx.reLaunch({
@@ -29,8 +31,9 @@ Page({
     //     });
     // },
     hdft: function(t) {
+        var iid = this.data.iid;
         wx.navigateTo({
-            url: "../message/vfabu",
+            url: "../message/vfabu?id=" + iid,
             success: function(t) {},
             fail: function(t) {},
             complete: function(t) {}
@@ -48,6 +51,9 @@ Page({
         }), this.refresh1();
     },
     onLoad: function(t) {
+        this.setData({
+            iid:t.id
+        })
         console.log(t);
         var a = this;
         wx.setNavigationBarColor({

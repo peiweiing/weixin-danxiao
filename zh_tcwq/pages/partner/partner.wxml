@@ -20,7 +20,7 @@
     <view class="section_list flex-bet">
         <view class="section_con">
             <view class="section_title">1 <text class="secxian">/ </text>推荐奖励</view>
-            <view class="section_nei">你推荐的朋友只要进入志汇同城，他付费发布、刷新、置顶信息、入驻好店、参与抢购你都可以获得奖励。</view>
+            <view class="section_nei">你推荐的朋友只要进入志汇同城，他付费信息、刷新、置顶信息、入驻好店、参与抢购你都可以获得奖励。</view>
         </view>
         <image class="section_rit" src="../image/img1.png"></image>
     </view>

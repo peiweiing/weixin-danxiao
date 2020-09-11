@@ -1,5 +1,5 @@
 {
-    "navigationBarTitleText": "我的发布",
+    "navigationBarTitleText": "我的信息",
     "enablePullDownRefresh": true,
     "usingComponents": {
         "store-cell": "/zh_tcwq/component/store-cell",

@@ -10,10 +10,10 @@
                 <text wx:else>{{item.name}}</text>
                 <text></text>
                 <text wx:if="{{item.m<24}}">
-                    <text wx:if="{{item.m==0}}">{{item.h}}分钟前发布</text>
-                    <text wx:if="{{item.m>0}}">{{item.m}}小时{{item.h}}分钟前发布</text>
+                    <text wx:if="{{item.m==0}}">{{item.h}}分钟前信息</text>
+                    <text wx:if="{{item.m>0}}">{{item.m}}小时{{item.h}}分钟前信息</text>
                 </text>
-                <text wx:if="{{item.m>=24}}">{{item.zx_time}}  发布</text>
+                <text wx:if="{{item.m>=24}}">{{item.zx_time}}  信息</text>
             </view>
         </view>
     </view>

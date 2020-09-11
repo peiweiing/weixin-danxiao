@@ -104,7 +104,7 @@ Page({
         c.setFillStyle("#fff"), c.rect(0, 0, i, l), c.fill(), c.drawImage(e.qr_code, i - 120, 20, 100, 100), 
         c.fillStyle = "#999", c.setFontSize(14), c.fillText("长按识别二维码,查看详情", i - 110, 150, 80, 80), 
         c.fillStyle = "#000", c.setFontSize(18), c.fillText(a.data.post.type_name, 20, 60), 
-        c.fillStyle = "#999", c.setFontSize(14), c.fillText(app.ormatDate(e.post.sh_time) + "发布", 20, 90), 
+        c.fillStyle = "#999", c.setFontSize(14), c.fillText(app.ormatDate(e.post.sh_time) + "信息", 20, 90), 
         c.fillText(e.post.views + "人浏览", 20, 110);
         var r = a.data.post.details;
         console.log(r);

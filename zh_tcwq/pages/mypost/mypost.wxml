@@ -38,7 +38,7 @@
                 <image mode="aspectFill" src="{{url}}{{item}}" wx:for="{{item.img}}"></image>
             </view>
             <view class="content_chakan">
-                <view class="content_info">{{item.time}}发布
+                <view class="content_info">{{item.time}}信息
           <text wx:if="{{item.cityname!=''}}">({{item.cityname}})</text>
                 </view>
                 <view bindtap="see" class="content_info2" data-id="{{item.id}}">查看详情>></view>
@@ -72,7 +72,7 @@
         <view class="none ab udlr" wx:if="{{slide==null||slide.length==0}}">
             <view>
                 <image mode="widthFix" src="../image/tie2.png"></image>
-                <view class="center">你还没有发布{{System.tzmc}}喔</view>
+                <view class="center">你还没有信息{{System.tzmc}}喔</view>
             </view>
         </view>
     </view>
@@ -103,7 +103,7 @@
                 <image src="{{url}}{{item}}" wx:for="{{item.img}}"></image>
             </view>
             <view class="content_chakan">
-                <view class="content_info">{{item.time}}发布
+                <view class="content_info">{{item.time}}信息
           <text wx:if="{{item.cityname!=''}}">({{item.cityname}})</text>
                 </view>
                 <view bindtap="see" class="content_info2" data-id="{{item.id}}">查看详情>></view>
@@ -150,7 +150,7 @@
                 <image src="{{url}}{{item}}" wx:for="{{item.img}}"></image>
             </view>
             <view class="content_chakan">
-                <view class="content_info">{{item.time}}发布
+                <view class="content_info">{{item.time}}信息
           <text wx:if="{{item.cityname!=''}}">({{item.cityname}})</text>
                 </view>
                 <view bindtap="see" class="content_info2" data-id="{{item.id}}">查看详情>></view>
@@ -197,7 +197,7 @@
                 <image src="{{url}}{{item}}" wx:for="{{item.img}}"></image>
             </view>
             <view class="content_chakan">
-                <view class="content_info">{{item.time}}发布
+                <view class="content_info">{{item.time}}信息
           <text wx:if="{{item.cityname!=''}}">({{item.cityname}})</text>
                 </view>
                 <view bindtap="see" class="content_info2" data-id="{{item.id}}">查看详情>></view>
@@ -242,7 +242,7 @@
 <view class="weui-cells weui-cells_after-title xzfbdq" wx:if="{{xzdq}}">
     <view class="weui-cell">
         <view class="weui-cell__hd weui-cell__hd_in-select-after" style="padding:0rpx;">
-            <view class="weui-label">选择发布地区</view>
+            <view class="weui-label">选择信息地区</view>
         </view>
         <view class="weui-cell__bd">
             <picker bindchange="bindCountryChange" range="{{countries}}" value="{{countryIndex}}">

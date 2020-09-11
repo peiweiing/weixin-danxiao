@@ -1,0 +1,63 @@
+/* zh_tcwq/pages/myfb/myfb.wxss */
+.box{
+  padding: 2%;
+  min-height: calc(100vh);
+  background-color: rgb(243, 243, 243);
+}
+.divcs{
+  padding: 2%;
+  margin: 0 4%;
+  margin-bottom: 2%;
+  border-radius: 10rpx;
+  background-color: #fff;
+}
+.div{
+  padding: 2%;
+}
+.divcs .title{
+  font-size: 18px;
+}
+.divcs .imgcs{
+  width: 100%;
+  overflow-x: auto;
+}
+.divcs .imgs{
+  width: 120rpx;height: 100rpx;
+}
+.divcs .img{
+  width: 100%;height: 100%;
+  margin: 1%;
+}
+.divcs .textcs{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.divcs .text{
+  font-size: 14px;
+  margin: 2% 0;
+  overflow:hidden;
+  text-overflow: ellipsis;
+  display:-webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:3;
+}
+.divcs .but{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.divcs button{
+  color: #fff;
+  width: 25%;
+  font-size: 12px;
+  line-height: 50rpx;
+  padding: 0;
+  border-radius: 20rpx;
+}
+.divcs button:first-child{
+  background-image: linear-gradient(to right, #276ace , #29bdd9 );
+}
+.divcs button:last-child{
+  background-image: linear-gradient(to right, #e92758 , #ff9569 );
+}

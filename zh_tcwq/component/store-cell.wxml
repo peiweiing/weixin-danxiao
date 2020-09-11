@@ -27,7 +27,7 @@
         <view bindtap="store" data-id="{{content.id}}">
             <image mode="aspectFill" src="{{url}}{{content.logo}}"></image>
             <view class="vdiv">
-                <text>{{content.store_name}}</text><text>{{content.money}}</text>
+                <text>{{content.store_name}}</text><text>{{content.price}}</text>
             </view>
             <text class="text">{{content.details}}</text>
             <!-- <text class="sellersname rel">

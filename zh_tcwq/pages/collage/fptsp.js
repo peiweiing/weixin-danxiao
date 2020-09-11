@@ -208,7 +208,7 @@ Page({
     },
     onLoad: function(e) {
         wx.setNavigationBarTitle({
-            title: "发布拼团商品"
+            title: "信息拼团商品"
         }), app.setNavigationBarColor(this);
         var t = e.store_id, i = this, a = util.formatTime(new Date()).substring(0, 10).replace(/\//g, "-");
         console.log(t, a.toString()), this.setData({
@@ -234,7 +234,7 @@ Page({
             success: function(e) {
                 console.log(e), 0 == e.data.length && wx.showModal({
                     title: "提示",
-                    content: "平台暂未添加分类，无法发布商品",
+                    content: "平台暂未添加分类，无法信息商品",
                     success: function(e) {
                         wx.navigateBack({});
                     }

@@ -11,10 +11,15 @@ Page({
         page1: 1,
         tie: [],
         tie1: [],
-        intp:''
+        intp:'',
+        types:''
     },
     onLoad: function(t) {
         console.log(t);
+        this.setData({
+            types: t.id
+        });
+        console.log(this.data.types);
         app.pageOnLoad(this), app.setNavigationBarColor(this), this.reload();
         var a = this;
         wx.setNavigationBarColor({
@@ -108,9 +113,10 @@ Page({
         var det =that.data.intp.details;
         var mm =that.data.intp.money;
         var ii =that.data.intp.name;
+        var types =that.data.types;
         console.log(that.data)
         wx.navigateTo({
-            url: "../fabu/edit/edit?type_id=" + dd + "&user_id=" + uid + "&type2_id=" + ddd + "&id=" + idd + "&details=" + det + "&money=" + mm + "&info=" +ii
+            url: "../fabu/edit/edit?type_id=" + dd + "&types=" + types + "&user_id=" + uid + "&type2_id=" + ddd + "&id=" + idd + "&details=" + det + "&money=" + mm + "&info=" +ii
         });
     },
     tabClick: function(t) {

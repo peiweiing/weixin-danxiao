@@ -1,10 +1,14 @@
 // zh_tcwq/pages/settled/vsettled.js
+var app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    arr:'',
+    arrimg:'',
+    arrimgs:false,
     arrayN:0,
     array: ['选项1', '选项2', '选项3', '选项4'],
     title:"",
@@ -24,13 +28,35 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-
+  onLoad: function (e) {
+    console.log(e);
+    this.setData({
+        urls: wx.getStorageSync("url")
+    })
+    var the =this;
+    console.log(e);
+    app.util.request({
+        url: "entry/wxapp/Mytz",
+        data: {
+            id: e.editid,
+            type:3
+            // type:e.types
+        },
+        success: function(res) {
+            console.log(res),
+            the.setData({
+                arr: res.data,
+                arrimg:res.data.img,
+                arrimgs:true
+            });
+        }
+    });
   },
 
 
 
   formSubmit:function(e){
+    var users = wx.getStorageSync("users").id;
     var that = this;
     console.log('form发生了submit事件，携带数据为：', e.detail.value);
     
@@ -48,19 +74,19 @@ Page({
         // url: that.data.url + "app/index.php?i=" + n + "&c=entry&a=wxapp&do=Student&m=zh_tcwq",
         url: 'https://jskh.lovehou.com/app/index.php?i=6&t=0&v=1.21&from=wxapp&c=entry&a=wxapp&do=Student&&m=zh_tcwq&sign=f1e40497cdabc0cffe5bfeab959dbd09',
         method: "GET",
-        data:{title:e.detail.value.title,alt:e.detail.value.alt,price:e.detail.value.price,type:e.detail.value.type,qq:e.detail.value.qq,weixin:e.detail.value.weixin,tel:e.detail.value.tel,logo:this.data.logo},
+        data:{title:e.detail.value.title,user_id:users,alt:e.detail.value.alt,price:e.detail.value.price,type:e.detail.value.type,qq:e.detail.value.qq,weixin:e.detail.value.weixin,tel:e.detail.value.tel,logo:this.data.logo},
         success: function(res) {
           console.log(res)
           wx.showToast({
-            title: "发布成功",
+            title: "信息成功",
             icon: 'success',
             duration: 1500
           }),
           setTimeout(
             wx.reLaunch({
-              url: "../store/store"
+              url: "../index/index"
           }),2000)
-        }  
+        }
       })
 
     }

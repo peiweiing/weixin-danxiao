@@ -79,14 +79,14 @@
                 <view class="weui-cell__ft" style="color:{{color}}" wx:if="{{oitem.order.dn_state=='2'}}">已完成</view>
                 <view class="weui-cell__ft" style="color:{{color}}" wx:if="{{oitem.order.dn_state=='3'}}">已关闭</view>
             </view>
-            <view style="font-size:25rpx;color:#999;padding:0rpx 30rpx 20rpx;">发布时间：2018-12-15 09：08：10{{oitem.order.time}}</view>
+            <view style="font-size:25rpx;color:#999;padding:0rpx 30rpx 20rpx;">信息时间：2018-12-15 09：08：10{{oitem.order.time}}</view>
             <view style="background:#f5f5f5">
                 <view class="weui-cell">
                     <view class="weui-cell__bd gobyndmulit" style="-webkit-line-clamp: 2;">淡淡的淡淡的淡淡的淡淡的淡淡的淡淡的淡淡淡淡的淡淡的淡淡的淡淡的淡淡的淡淡的淡淡的淡淡的淡淡的淡淡的淡淡的淡淡的淡淡的淡淡的的{{oitem.order.address}}</view>
                 </view>
                 <view class="weui-cell" data-tel="{{oitem.order.tel}}">
                     <view class="weui-cell__hd">
-              发布人电话：
+              信息人电话：
             </view>
                     <view class="weui-cell__bd">{{oitem.order.money}}18571632805</view>
                 </view>

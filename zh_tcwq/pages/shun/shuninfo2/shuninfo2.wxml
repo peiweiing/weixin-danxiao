@@ -6,7 +6,7 @@
                 <view class="header_title">{{pc.user_name}}</view>
                 <view class="flex-bet">
                     <view class="header_cart">{{pc.typename}}</view>
-                    <view class="header_time">发布于{{pc.time}}</view>
+                    <view class="header_time">信息于{{pc.time}}</view>
                 </view>
             </view>
         </view>
@@ -71,7 +71,7 @@
         <view class="icon rel">
             <image class="ab udlr" mode="widthFix" src="../../image/nav.png"></image>
         </view>
-        <view class="nav_title center">发布</view>
+        <view class="nav_title center">信息</view>
     </view>
     <view bindtap="call_phone" class="nav_phone" data-tel="{{pc.link_tel}}" style="background:{{system.color}}">
         <view>一键拨号</view>

@@ -2,6 +2,13 @@ var app = getApp(), _imgArray = [];
 
 Page({
     data: {
+        url:'https://jskh.lovehou.com/',
+        url1:'https://jskh.lovehou.com/attachment/',
+        types:'',
+        arr:'',
+        urls:'',
+        arrimg:[],
+        arrimgs:false,
         stick_none: !1,
         checked: !1,
         checked_welfare: !1,
@@ -43,7 +50,57 @@ Page({
         });
     },
     onLoad: function(e) {
+        this.setData({
+            urls: wx.getStorageSync("url")
+        })
+        var the =this;
         console.log(e);
+        if(e.types==2){
+            this.setData({
+                types:2,
+            })
+        }else if(e.types==4){
+            this.setData({
+                types:4,
+            })
+        }else if(e.types==5){
+            this.setData({
+                types:5,
+            })
+        }
+        
+        app.util.request({
+            url: "entry/wxapp/Mytz",
+            data: {
+                id: e.editid,
+                // type:e.types
+            },
+            success: function(res) {
+                console.log(res);
+                the.setData({
+                    arr: res.data,
+                    arrimg:res.data[0].img,
+                    // arrimgs:true
+                });
+                console.log(res.data[0].img)
+                // let arrimage = the.data.arrimg;
+                // console.log(arrimage);
+                // let arrimages = Object.entries(arrimage);
+                // console.log(Object.entries(arrimage));
+                // the.setData({
+                //     arrimg:arrimages
+                // })
+
+            }
+        });
+        // console.log(e.query)
+        const eventChannel = this.getOpenerEventChannel()
+        eventChannel.emit('someEvent', {data: 'test'});
+        // 监听acceptDataFromOpenerPage事件，获取上一页面通过eventChannel传送到当前页面的数据
+        eventChannel.on('acceptDataFromOpenerPage', function(data) {
+          console.log(data)
+        })
+        
         var i = this, t = wx.getStorageSync("users").id;
         app.util.request({
             url: "entry/wxapp/GetUserInfo",
@@ -269,6 +326,19 @@ Page({
             imgArray1: _imgArray
         });
     },
+    deletes: function(e) {
+        Array.prototype.indexOf = function(e) {
+            for (var t = 0; t < this.length; t++) if (this[t] == e) return t;
+            return -1;
+        }, Array.prototype.remove = function(e) {
+            var t = this.indexOf(e);
+            -1 < t && this.splice(t, 1);
+        };
+        var t = e.currentTarget.dataset.ind;
+        _imgArray.remove(_imgArray[t]), this.setData({
+            arrimg: _imgArray
+        });
+    },
     switch1Change: function(e) {
         console.log(e.detail.value), e.detail.value || this.setData({
             stick_none: !1,
@@ -294,6 +364,13 @@ Page({
         });
     },
     formSubmit: function(e) {
+        console.log(e);
+        var prices =e.detail.value.price;
+        var costs =e.detail.value.cost;
+        var starts =e.detail.value.start;
+        var dests =e.detail.value.dest;
+        var dzaddress =e.detail.value.dzaddress;
+        
         if (console.log("这是保存formid2"), console.log(e), app.util.request({
             url: "entry/wxapp/SaveFormid",
             cachetime: "0",
@@ -304,14 +381,18 @@ Page({
             },
             success: function(e) {}
         }), this.data.radiochecked) {
-            var t = this, a = 0 == t.data.countryIndex ? wx.getStorageSync("city") : "";
+            var t = this;
+            var a = 0 == t.data.countryIndex ? wx.getStorageSync("city") : "";
             console.log("city", a);
             var n = t.data.num + 1;
             t.setData({
                 num: n
             });
             var i = t.data.money1;
-            if ("1" == t.data.System.is_tzdz) var o = e.detail.value.dzaddress; else o = "";
+            
+            // 下面两行切换
+            // if ("1" == t.data.System.is_tzdz) var o = e.detail.value.dzaddress; else o = "";
+            var o = "";
             console.log(o);
             var s = t.data.procedures;
             if (null == t.data.type) var c = 0; else c = t.data.type;
@@ -327,7 +408,7 @@ Page({
             if (console.log(p, y), "" != this.data.mgnr.content) for (var h = 0; h < p.length; h++) if (-1 != y.indexOf(p[h])) return console.log(y.indexOf(p[h])), 
             void wx.showModal({
                 title: "温馨提示",
-                content: "您发布的内容在第" + (y.indexOf(p[h]) + 1) + "个字符出现违规敏感词汇,请修改后提交"
+                content: "您信息的内容在第" + (y.indexOf(p[h]) + 1) + "个字符出现违规敏感词汇,请修改后提交"
             });
             var g = e.detail.value.name, f = e.detail.value.tel;
             console.log(f);
@@ -374,22 +455,28 @@ Page({
                         user_name: g,
                         user_tel: f,
                         type2_id: x,
-                        type_id: _,
+                        type_id: this.data.types,
                         money: v,
                         type: c,
                         sz: u,
-                        address: o,
+                        // address: o,
+                        address:dzaddress,
                         hb_money: N,
                         hb_keyword: C,
                         hb_num: q,
                         hb_type: z,
                         hb_random: P,
-                        cityname: a
+                        cityname: a,
+                        price:prices,
+                        cost:costs,
+                        start:starts,
+                        dest:dests
                     },
+                    
                     success: function(e) {
                         console.log(e)
                         wx.showToast({
-                            title: "发布成功",
+                            title: "信息成功",
                             mask: !0
                         }), setTimeout(function() {
                             wx.reLaunch({
@@ -398,117 +485,188 @@ Page({
                                 fail: function(e) {},
                                 complete: function(e) {}
                             });
+                            // wx.navigateBack({ 
+                            //     delta: 1,
+                            //     success: function(e) {},
+                            //     fail: function(e) {},
+                            //     complete: function(e) {}
+                            // });this.onLoad()
                         }, 1e3);
                     }
-                }); else {
-                    if (t.data.isios && "2" == t.data.System.is_pgzf) return void wx.showModal({
-                        title: "暂不支持",
-                        content: "由于相关规范，iOS功能暂不可用",
-                        showCancel: !1,
-                        confirmText: "好的",
-                        confirmColor: "#666"
-                    });
-                    t.setData({
-                        disabled: !0
-                    }), console.log(t.data.money, t.data.money1, N, v, S, Number(t.data.money) + Number(t.data.money1)), 
+                }); 
+                else {
+                    // if (t.data.isios && "2" == t.data.System.is_pgzf) return void wx.showModal({
+                    //     title: "暂不支持",
+                    //     content: "由于相关规范，iOS功能暂不可用",
+                    //     showCancel: !1,
+                    //     confirmText: "好的",
+                    //     confirmColor: "#666"
+                    // });
+                    // t.setData({
+                    //     disabled: !0
+                    // }), console.log(t.data.money, t.data.money1, N, v, S, Number(t.data.money) + Number(t.data.money1)), 
+                    // app.util.request({
+                    //     url: "entry/wxapp/Pay",
+                    //     cachetime: "0",
+                    //     data: {
+                    //         openid: m,
+                    //         money: v
+                    //     },
+                    //     success: function(e) {
+                    //         wx.requestPayment({
+                    //             timeStamp: e.data.timeStamp,
+                    //             nonceStr: e.data.nonceStr,
+                    //             package: e.data.package,
+                    //             signType: e.data.signType,
+                    //             paySign: e.data.paySign,
+                    //             success: function(e) {
+                    //                 0 < Number(t.data.money) + Number(t.data.money1) && app.util.request({
+                    //                     url: "entry/wxapp/fx",
+                    //                     cachetime: "0",
+                    //                     data: {
+                    //                         user_id: b,
+                    //                         money: Number(t.data.money) + Number(t.data.money1)
+                    //                     },
+                    //                     success: function(e) {
+                    //                         console.log(e);
+                    //                     }
+                    //                 }), 
+                    //                 app.util.request({
+                    //                     url: "entry/wxapp/Posting",
+                    //                     cachetime: "0",
+                    //                     data: {
+                    //                         lat: t.data.lat,
+                    //                         lng: t.data.lng,
+                    //                         details: y,
+                    //                         img: L,
+                    //                         user_id: b,
+                    //                         user_name: g,
+                    //                         user_tel: f,
+                    //                         type2_id: x,
+                    //                         type_id: _,
+                    //                         money: v,
+                    //                         type: c,
+                    //                         sz: u,
+                    //                         // address: o,
+                    //                         address:dzaddress,
+                    //                         hb_money: N,
+                    //                         hb_keyword: C,
+                    //                         hb_num: q,
+                    //                         hb_type: z,
+                    //                         hb_random: P,
+                    //                         cityname: a,
+                    //                         price:prices,
+                    //                         cost:costs,
+                    //                         start:starts,
+                    //                         dest:dests
+                    //                     },
+                    //                     success: function(e) {
+                    //                         0 == S || null == S || "" == S || app.util.request({
+                    //                             url: "entry/wxapp/SaveTzPayLog",
+                    //                             cachetime: "0",
+                    //                             data: {
+                    //                                 tz_id: e.data,
+                    //                                 money: v,
+                    //                                 money1: t.data.money,
+                    //                                 money2: t.data.money1,
+                    //                                 money3: N
+                    //                             },
+                    //                             success: function(e) {}
+                    //                         }), wx.showToast({
+                    //                             title: "信息成功",
+                    //                             mask: !0
+                    //                         }), setTimeout(function() {
+                    //                             // wx.reLaunch({
+                    //                             //     url: "../../index/index",
+                    //                             //     success: function(e) {},
+                    //                             //     fail: function(e) {},
+                    //                             //     complete: function(e) {}
+                    //                             // });
+                                                
+                    //                             wx.navigateBack({ 
+                    //                                 delta: 1,
+                    //                                 success: function(e) {},
+                    //                                 fail: function(e) {},
+                    //                                 complete: function(e) {}
+                    //                             });this.onLoad()
+                    //                         }, 1e3);
+                    //                     }
+                    //                 });
+                    //             },
+                    //             fail: function(e) {
+                    //                 wx.showToast({
+                    //                     title: "支付失败",
+                    //                     duration: 1e3
+                    //                 });
+                    //             },
+                    //             complete: function(e) {
+                    //                 console.log(e), "requestPayment:fail cancel" == e.errMsg && (wx.showToast({
+                    //                     title: "取消支付",
+                    //                     icon: "loading",
+                    //                     duration: 1e3
+                    //                 }), t.setData({
+                    //                     disabled: !1
+                    //                 }));
+                    //             }
+                    //         });
+                    //     }
+                    // });
                     app.util.request({
-                        url: "entry/wxapp/Pay",
+                        url: "entry/wxapp/Posting",
                         cachetime: "0",
                         data: {
-                            openid: m,
-                            money: v
+                            lat: t.data.lat,
+                            lng: t.data.lng,
+                            details: y,
+                            img: L,
+                            user_id: b,
+                            user_name: g,
+                            user_tel: f,
+                            type2_id: x,
+                            type_id: this.data.types,
+                            money: v,
+                            type: c,
+                            sz: u,
+                            // address: o,
+                            address:dzaddress,
+                            hb_money: N,
+                            hb_keyword: C,
+                            hb_num: q,
+                            hb_type: z,
+                            hb_random: P,
+                            cityname: a,
+                            price:prices,
+                            cost:costs,
+                            start:starts,
+                            dest:dests
                         },
+                        
                         success: function(e) {
-                            wx.requestPayment({
-                                timeStamp: e.data.timeStamp,
-                                nonceStr: e.data.nonceStr,
-                                package: e.data.package,
-                                signType: e.data.signType,
-                                paySign: e.data.paySign,
-                                success: function(e) {
-                                    0 < Number(t.data.money) + Number(t.data.money1) && app.util.request({
-                                        url: "entry/wxapp/fx",
-                                        cachetime: "0",
-                                        data: {
-                                            user_id: b,
-                                            money: Number(t.data.money) + Number(t.data.money1)
-                                        },
-                                        success: function(e) {
-                                            console.log(e);
-                                        }
-                                    }), app.util.request({
-                                        url: "entry/wxapp/Posting",
-                                        cachetime: "0",
-                                        data: {
-                                            lat: t.data.lat,
-                                            lng: t.data.lng,
-                                            details: y,
-                                            img: L,
-                                            user_id: b,
-                                            user_name: g,
-                                            user_tel: f,
-                                            type2_id: x,
-                                            type_id: _,
-                                            money: v,
-                                            type: c,
-                                            sz: u,
-                                            address: o,
-                                            hb_money: N,
-                                            hb_keyword: C,
-                                            hb_num: q,
-                                            hb_type: z,
-                                            hb_random: P,
-                                            cityname: a
-                                        },
-                                        success: function(e) {
-                                            0 == S || null == S || "" == S || app.util.request({
-                                                url: "entry/wxapp/SaveTzPayLog",
-                                                cachetime: "0",
-                                                data: {
-                                                    tz_id: e.data,
-                                                    money: v,
-                                                    money1: t.data.money,
-                                                    money2: t.data.money1,
-                                                    money3: N
-                                                },
-                                                success: function(e) {}
-                                            }), wx.showToast({
-                                                title: "发布成功",
-                                                mask: !0
-                                            }), setTimeout(function() {
-                                                wx.reLaunch({
-                                                    url: "../../index/index",
-                                                    success: function(e) {},
-                                                    fail: function(e) {},
-                                                    complete: function(e) {}
-                                                });
-                                            }, 1e3);
-                                        }
-                                    });
-                                },
-                                fail: function(e) {
-                                    wx.showToast({
-                                        title: "支付失败",
-                                        duration: 1e3
-                                    });
-                                },
-                                complete: function(e) {
-                                    console.log(e), "requestPayment:fail cancel" == e.errMsg && (wx.showToast({
-                                        title: "取消支付",
-                                        icon: "loading",
-                                        duration: 1e3
-                                    }), t.setData({
-                                        disabled: !1
-                                    }));
-                                }
-                            });
+                            console.log(e)
+                            wx.showToast({
+                                title: "信息成功",
+                                mask: !0
+                            }), setTimeout(function() {
+                                wx.reLaunch({
+                                    url: "../../index/index",
+                                    success: function(e) {},
+                                    fail: function(e) {},
+                                    complete: function(e) {}
+                                });
+                                // wx.navigateBack({ 
+                                //     delta: 1,
+                                //     success: function(e) {},
+                                //     fail: function(e) {},
+                                //     complete: function(e) {}
+                                // });this.onLoad()
+                            }, 1e3);
                         }
-                    });
+                    }); 
                 }
             }
         } else wx.showModal({
             title: "提示",
-            content: "请阅读并同意《发布须知》"
+            content: "请阅读并同意《信息须知》"
         });
     },
     cancel: function(e) {

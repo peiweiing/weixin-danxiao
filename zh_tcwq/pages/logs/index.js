@@ -682,7 +682,7 @@ Page({
                     vr_link: m
                 },
                 success: function(e) {
-                    console.log("这里是发布成功"), console.log(e), 1 == e.data && (wx.showToast({
+                    console.log("这里是信息成功"), console.log(e), 1 == e.data && (wx.showToast({
                         title: "修改成功",
                         icon: "",
                         image: "",
@@ -734,7 +734,7 @@ Page({
                         vr_link: m
                     },
                     success: function(e) {
-                        console.log("这里是发布成功"), console.log(e), 1 == e.data && (wx.showToast({
+                        console.log("这里是信息成功"), console.log(e), 1 == e.data && (wx.showToast({
                             title: "入驻成功",
                             icon: "",
                             image: "",
@@ -799,7 +799,7 @@ Page({
                                         vr_link: m
                                     },
                                     success: function(e) {
-                                        console.log("这里是发布成功"), console.log(e), 1 == e.data && (wx.showToast({
+                                        console.log("这里是信息成功"), console.log(e), 1 == e.data && (wx.showToast({
                                             title: "入驻成功",
                                             icon: "",
                                             image: "",

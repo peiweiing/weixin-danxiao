@@ -1,5 +1,5 @@
 {
-    "navigationBarTitleText": "发布资讯",
+    "navigationBarTitleText": "信息资讯",
     "usingComponents": {
         "store-cell": "/zh_tcwq/component/store-cell",
         "wux-rater": "/zh_tcwq/component/rater"

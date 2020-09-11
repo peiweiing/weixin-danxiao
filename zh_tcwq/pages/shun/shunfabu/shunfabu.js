@@ -2,6 +2,9 @@ var app = getApp();
 
 Page({
     data: {
+        arr:'',
+        arrimg:'',
+        arrimgs:false,
         shunfabu: [ "人找车", "车找人", "车找货", "货找车" ],
         index: 0,
         arr_index: 0,
@@ -12,6 +15,25 @@ Page({
         time: "00:00"
     },
     onLoad: function(t) {
+        this.setData({
+            urls: wx.getStorageSync("url")
+        })
+        var the =this;
+        app.util.request({
+            url: "entry/wxapp/Mytz",
+            data: {
+                id: t.editid,
+                type:2
+            },
+            success: function(res) {
+                console.log(res),
+                the.setData({
+                    arr: res.data,
+                    arrimg:res.data.img,
+                    arrimgs:true
+                });
+            }
+        });
         console.log(t), app.setNavigationBarColor(this);
         var e = wx.getStorageSync("System");
         console.log(e);
@@ -190,7 +212,7 @@ Page({
             },
             success: function(t) {
                 console.log(t), wx.showToast({
-                    title: "发布成功",
+                    title: "信息成功",
                     icon: "",
                     image: "",
                     duration: 2e3,
@@ -200,14 +222,20 @@ Page({
                     },
                     fail: function(t) {},
                     complete: function(t) {}
-                }), setTimeout(function() {
-                    wx.navigateBack({
-                        url: "../../index/index",
-                        success: function(t) {},
-                        fail: function(t) {},
-                        complete: function(t) {}
-                    });
-                }, 2e3);
+                }), setTimeout(() => {
+                    wx.reLaunch({
+                       //url: "../marry/opone?id=" + tid + "&name=" + a,
+                    //    url: "../../shun/shun",
+                     url: "../../index/index",
+                    })
+                // wx.navigateBack({
+                //     url: "../../shun/shun",
+                //     success: function(t) {},
+                //     fail: function(t) {},
+                //     complete: function(t) {},
+                // });
+            }, 
+            1500);
             }
         }); else {
             var T = wx.getStorageSync("openid");
@@ -270,7 +298,7 @@ Page({
                                             console.log(t);
                                         }
                                     }), wx.showToast({
-                                        title: "发布成功",
+                                        title: "信息成功",
                                         icon: "",
                                         image: "",
                                         duration: 2e3,
@@ -280,14 +308,22 @@ Page({
                                         },
                                         fail: function(t) {},
                                         complete: function(t) {}
-                                    }), setTimeout(function() {
-                                        wx.navigateBack({
-                                            url: "../../index/index",
-                                            success: function(t) {},
-                                            fail: function(t) {},
-                                            complete: function(t) {},
-                                        });
-                                    }, 2e3);
+                                    }), 
+                                    // setTimeout(function() {
+                                        setTimeout(() => {
+                                            wx.reLaunch({
+                                               //url: "../marry/opone?id=" + tid + "&name=" + a,
+                                            //    url: "../shun/shun",
+                                             url: "../index/index",
+                                            })
+                                        // wx.navigateBack({
+                                        //     url: "../../shun/shun",
+                                        //     success: function(t) {},
+                                        //     fail: function(t) {},
+                                        //     complete: function(t) {},
+                                        // });
+                                    }, 
+                                    1500);
                                 }
                             });
                         }

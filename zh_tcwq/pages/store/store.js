@@ -16,6 +16,7 @@ Page({
         circular: !0,
         refresh_top: !1,
         intp:'',
+        idds:'',
         star: [ {
             img: "../image/xing.png"
         }, {
@@ -221,6 +222,10 @@ Page({
         });
     },
     onLoad: function(t) {
+        console.log("进入",t);
+        this.setData({
+            idds:t.id
+        })
         var a = this;
         app.pageOnLoad(this), app.setNavigationBarColor(this), wx.getSystemInfo({
             success: function(t) {
@@ -279,7 +284,7 @@ Page({
     refresh: function() {
         var n = this, t = wx.getStorageSync("city"), e = n.data.page || 1, a = n.data.type || 1, i = n.data.business || [];
         console.log("城市为" + t, e, a, i), app.util.request({
-            // url: "entry/wxapp/StoreList",
+           //  url: "entry/wxapp/StoreList",
             url: "entry/wxapp/StudentList",
             cachetime: "0",
             data: {
@@ -300,7 +305,7 @@ Page({
                     fjpx: [],
                     store1: []
                 })) : (n.setData({
-                    page: e + 1,
+                     page: e + 1,
                     refresh_top: !1
                 }), i = i.concat(t.data), n.setData({
                     store: i,
@@ -331,8 +336,18 @@ Page({
     //     });
     // },
     sellted: function(t) {
+        console.log(t)
+        var that =this;
+        var idds = that.data.idds;
+        var idd =that.data.intp.id;
+        var uid =that.data.intp.user_id;
+        var dd =that.data.intp.type_id;
+        var ddd =that.data.intp.type2_id;
+        var det =that.data.intp.details;
+        var mm =that.data.intp.money;
+        var ii =that.data.intp.name;
         wx.navigateTo({
-            url: "../settled/vsettled",
+            url: "../settled/vsettled?id=" + idds + "&user_id=" + uid + "&type2_id=" + ddd + "&details=" + det + "&money=" + mm + "&info=" +ii,
             success: function(t) {},
             fail: function(t) {},
             complete: function(t) {}

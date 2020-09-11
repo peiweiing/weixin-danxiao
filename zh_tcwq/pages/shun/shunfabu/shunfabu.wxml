@@ -4,7 +4,7 @@
             <view class="list flex-center">
                 <view class="blue_box"></view>
                 <view class="list_name">出发地：</view>
-                <input class="list_inp gobyndsingle" name="address1" placeholder="请定位您的出发地" placeholderStyle="color:#999;" type="text" value="{{address}}"></input>
+                <input class="list_inp gobyndsingle" name="address1" placeholder="请定位您的出发地" placeholderStyle="color:#999;" type="text" value="{{arr[0].start_place}}"></input>
                 <view bindtap="add" class="blue_box1">
                     <image mode="aspectFill" src="../../image/address3.png"></image>
                 </view>
@@ -12,7 +12,7 @@
             <view class="list flex-center">
                 <view class="red_box"></view>
                 <view class="list_name">目的地：</view>
-                <input class="list_inp gobyndsingle" name="address2" placeholder="请定位您的目的地" placeholderStyle="color:#999;" type="text" value="{{address1}}"></input>
+                <input class="list_inp gobyndsingle" name="address2" placeholder="请定位您的目的地" placeholderStyle="color:#999;" type="text" value="{{arr[0].end_place}}"></input>
                 <view bindtap="add1" class="blue_box1">
                     <image mode="aspectFill" src="../../image/address3.png"></image>
                 </view>
@@ -20,18 +20,18 @@
             <view class="list flex-center" wx:if="{{id==1||id==2}}">
                 <view class="red_box"></view>
                 <view class="list_name">途径地：</view>
-                <input class="list_inp" name="path" placeholder="请填写途径地（没有可不填）" placeholderStyle="color:#999;" type="text"></input>
+                <input class="list_inp" name="path" placeholder="请填写途径地（没有可不填）" placeholderStyle="color:#999;" type="text" value="{{arr[0].path}}"></input>
             </view>
             <view class="listflex">
                 <image class="list_clock" src="../../image/naozhong@2x.png"></image>
                 <view class="list_name">出发时间：</view>
                 <view class="">
-                    <picker bindchange="bindDateChange" mode="date" start="{{date}}">
+                    <picker bindchange="bindDateChange" mode="date" start="{{date}}" value="{{arr[0].start_time}}">
                         <view class="picker">
               请选择日期：{{date}}
             </view>
                     </picker>
-                    <picker bindchange="bindTimeChange" class="list_pick" mode="time">
+                    <picker bindchange="bindTimeChange" class="list_pick" mode="time" value="{{arr[0].start_time}}">
                         <view class="picker">
               请选择时间：{{time}}
             </view>
@@ -53,7 +53,7 @@
             <view class="list flex-center" wx:if="{{id==3}}">
                 <view class="blue_box"></view>
                 <view class="list_name">货物重量：</view>
-                <input class="list_inp" name="weight" placeholder="请输入货物重量，单位公斤" placeholderStyle="color:#999;" type="text"></input>
+                <input class="list_inp" name="weight" placeholder="请输入货物重量，单位公斤" placeholderStyle="color:#999;" type="text" value="{{arr[0].weight}}"></input>
             </view>
             <view class="list flex-center" wx:if="{{id==2}}">
                 <image class="list_renqun" src="../../image/renqun.png"></image>
@@ -71,16 +71,16 @@
             <view class="list flex-center">
                 <image class="list_renqun" src="../../image/wode.png"></image>
                 <view class="list_name">联系人：</view>
-                <input class="list_inp" name="contacts" placeholder="请填写联系人" placeholderStyle="color:#999;"></input>
+                <input class="list_inp" name="contacts" placeholder="请填写联系人" placeholderStyle="color:#999;" value="{{arr[0].link_name}}"></input>
             </view>
             <view class="list flex-center">
                 <image class="list_renqun" src="../../image/ph.png"></image>
                 <view class="list_name">手机号：</view>
-                <input class="list_inp" name="contacts_tel" placeholder="请填写联系人电话" placeholderStyle="color:#999;" type="number"></input>
+                <input class="list_inp" name="contacts_tel" placeholder="请填写联系人电话" placeholderStyle="color:#999;" type="number" value="{{arr[0].link_tel}}"></input>
             </view>
             <view class="list flex-center" wx:if="{{money>0}}">
                 <image class="list_renqun" src="../../image/dfsd.png"></image>
-                <view class="list_inp">发布一条需要{{money}}元</view>
+                <view class="list_inp">信息一条需要{{money}}元</view>
             </view>
         </view>
         <view class="prompt">
@@ -90,7 +90,7 @@
         <view class="content">
             <view class="">其他需求</view>
             <view class="content_xuqiu">
-                <textarea bindinput="text" class="content_inp" name="other_demand" placeholder="简单补充说明：上车小区、时间说明等等" placeholderStyle="color:#999;" value="{{text}}" wx:if="{{duty==true}}"></textarea>
+                <textarea bindinput="text" class="content_inp" name="other_demand" placeholder="简单补充说明：上车小区、时间说明等等" placeholderStyle="color:#999;" value="{{arr[0].other}}" wx:if="{{duty==true}}"></textarea>
             </view>
             <view class="flex2">
                 <view bindtap="changeColor" class="conlabel {{item.click_class}}" id="{{index}}" wx:for="{{label}}" wx:key="*this">{{item.tagname}}</view>
@@ -106,8 +106,8 @@
         </view>
         <view class="footer"></view>
         <view class="confirm">
-            <button formType="submit" style="background:{{system.color}}" wx:if="{{icon_hidden==false}}">确定发布</button>
-            <button style="background:#d5d5d5" wx:else>确定发布</button>
+            <button formType="submit" style="background:{{system.color}}" wx:if="{{icon_hidden==false}}">确定信息</button>
+            <button style="background:#d5d5d5" wx:else>确定信息</button>
         </view>
         <view class="zhezhao" hidden="{{duty}}"></view>
         <view class="kcrzxy" hidden="{{duty}}">

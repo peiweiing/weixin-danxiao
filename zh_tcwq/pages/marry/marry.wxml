@@ -31,6 +31,7 @@
                         </view>
                         <view>拨打电话</view>
                     </view> -->
+                    
                 </view>
                 <view bindtap="see" class="content_wen gobyndsingle" data-id="{{item.tz.id}}">
           {{item.tz.details}}
@@ -39,11 +40,16 @@
                     <view style="border:1rpx solid {{item.number}};color:{{item.number}}" wx:for="{{item.label}}" wx:key="*this">{{item.label_name}}</view>
                 </view>
                 <view class="content_picture" wx:if="{{item.tz.img!=''}}">
-                    <image src="{{url}}{{item}}" wx:for="{{item.tz.img}}" wx:key="*this"></image>
+                    <view class="pictures" wx:for="{{item.tz.img}}" wx:key="*this">
+                        <image src="{{url}}{{item}}"></image>
+                    </view>
                 </view>
                 <view class="content_chakan">
-                    <view class="content_info">{{item.tz.time}}发布</view>
-                    <view class="content_info" wx:if="{{item.tz.lat!=''}}">离你{{item.tz.juli}}</view>
+                    <view class="content_info">{{item.tz.time}}信息</view>
+                    <!-- <view class="content_info" wx:if="{{item.tz.lat!=''}}">离你{{item.tz.juli}}</view> -->
+                    <view wx:if="{{types==4}}">
+                        <view style="color:red;">{{item.tz.price}}</view>
+                    </view>
                 </view>
                 <view class="content_liulan">
                     <image class="eye" src="../image/liulan.png"></image>
@@ -61,7 +67,7 @@
             <view class="none_info rel" wx:if="{{classification_info.length==0}}">
                 <image class="ab udlr" mode="aspectFill" src="../image/tie2.png"></image>
             </view>
-            <view style="color:#999;background:#fff;text-align:center;font-size:26rpx;padding:20rpx 0 60rpx 0;" wx:if="{{classification_info.length==0}}">该分类暂无发布的帖子</view>
+            <view style="color:#999;background:#fff;text-align:center;font-size:26rpx;padding:20rpx 0 60rpx 0;" wx:if="{{classification_info.length==0}}">该分类暂无信息的帖子</view>
         </view>
     </view>
 </scroll-view>
@@ -71,7 +77,7 @@
 </view>
 <view bindtap="hdft" class="comments border_three rel">
     <button></button>
-  发布
+  信息
 </view>
 <view class="comments border_four ">
   转发

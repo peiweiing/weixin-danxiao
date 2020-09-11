@@ -96,7 +96,7 @@
                 </view>
             </view>
         </view>
-        <button formType="submit">立即发布</button>
+        <button formType="submit">立即信息</button>
     </view>
     <view class="classification" wx:if="{{classification==true}}">
         <view>商品规格</view>

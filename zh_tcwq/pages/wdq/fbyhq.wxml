@@ -115,7 +115,7 @@
             <view class="tpsl">{{images.length}}/3</view>
         </view>
         <view class="weui-btn-area">
-            <button class="weui-btn" formType="submit" style="background-color:{{color}}" type="primary">发布</button>
+            <button class="weui-btn" formType="submit" style="background-color:{{color}}" type="primary">信息</button>
         </view>
     </view>
 </form>
@@ -130,11 +130,11 @@
     </view>
     <view class="list_imgbk2" wx:if="{{is_check=='3'}}">
         <image class="list_imgbk" src="../../img/wsj.png"></image>
-        <view class="list_imgbk3">您的门店申请已被拒绝，成功开通门店方能发布券</view>
+        <view class="list_imgbk3">您的门店申请已被拒绝，成功开通门店方能信息券</view>
     </view>
     <view class="list_imgbk2" wx:if="{{is_check==''}}">
         <image class="list_imgbk" src="../../img/wsj.png"></image>
-        <view class="list_imgbk3">您暂未开通门店，成功开通门店方能发布券</view>
+        <view class="list_imgbk3">您暂未开通门店，成功开通门店方能信息券</view>
     </view>
     <view class="button1" wx:if="{{is_check==''}}">
         <button bindtap="qwkt" class="weui-btn" style="background-color:#f44444" type="primary">前往开通</button>
@@ -142,7 +142,7 @@
 </view>
 <view class="zhezhao" hidden="{{fwxy}}"></view>
 <view class="kcrzxy" hidden="{{fwxy}}">
-    <view class="kcrzxyhd">优惠券发布协议</view>
+    <view class="kcrzxyhd">优惠券信息协议</view>
     <scroll-view scrollY class="kcrzxybd" style="height: 600rpx;">
         <rich-text nodes="{{ptxx.kq_agreement}}"></rich-text>
     </scroll-view>

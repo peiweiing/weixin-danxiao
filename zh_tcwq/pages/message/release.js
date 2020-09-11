@@ -141,7 +141,7 @@ Page({
             },
             success: function(e) {
                 console.log(e), 1 == e.data && (wx.showToast({
-                    title: "发布成功",
+                    title: "信息成功",
                     icon: "",
                     image: "",
                     duration: 2e3,

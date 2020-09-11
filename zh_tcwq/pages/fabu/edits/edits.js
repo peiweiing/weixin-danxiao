@@ -9,8 +9,6 @@ Page({
         urls:'',
         arrimg:[],
         arrimgs:false,
-        typeid:false,
-        anony:'',
         stick_none: !1,
         checked: !1,
         checked_welfare: !1,
@@ -22,8 +20,7 @@ Page({
         money1: 0,
         countries: [ "本地", "全国" ],
         countryIndex: 0,
-        radiochecked: !0,
-        nnmm:""
+        radiochecked: !0
     },
     checkboxChange: function(e) {
         this.setData({
@@ -58,9 +55,17 @@ Page({
         })
         var the =this;
         console.log(e);
-        if(e.type_id==6||e.types==6){
+        if(e.types==2){
             this.setData({
-                types:6,
+                types:2,
+            })
+        }else if(e.types==4){
+            this.setData({
+                types:4,
+            })
+        }else if(e.types==5){
+            this.setData({
+                types:5,
             })
         }
         
@@ -88,6 +93,14 @@ Page({
 
             }
         });
+        // console.log(e.query)
+        const eventChannel = this.getOpenerEventChannel()
+        eventChannel.emit('someEvent', {data: 'test'});
+        // 监听acceptDataFromOpenerPage事件，获取上一页面通过eventChannel传送到当前页面的数据
+        eventChannel.on('acceptDataFromOpenerPage', function(data) {
+          console.log(data)
+        })
+        
         var i = this, t = wx.getStorageSync("users").id;
         app.util.request({
             url: "entry/wxapp/GetUserInfo",
@@ -142,9 +155,9 @@ Page({
             }
         });
         var a = e.info, n = e.money.split(","), o = e.type_id, s = e.type2_id, c = wx.getStorageSync("System");
-        wx.setNavigationBarTitle({
-            title: a
-        });
+        // wx.setNavigationBarTitle({
+        //     title: a
+        // });
         wx.getStorageSync("uniacid");
         console.log(wx.getStorageSync("users"), n), i.setData({
             type_id: o,
@@ -326,17 +339,6 @@ Page({
             arrimg: _imgArray
         });
     },
-    typeid6: function(e) {
-        var the =this;
-        console.log(e.detail.value)
-        if(e.detail.value==true){
-            the.setData({
-                anony: 999
-            });
-        }
-        console.log(e.detail.value)
-        console.log(this.data.anony)
-    },
     switch1Change: function(e) {
         console.log(e.detail.value), e.detail.value || this.setData({
             stick_none: !1,
@@ -362,7 +364,13 @@ Page({
         });
     },
     formSubmit: function(e) {
-        console.log(e.detail.value.nnmm)
+        console.log(e);
+        var prices =e.detail.value.price;
+        var costs =e.detail.value.cost;
+        var starts =e.detail.value.start;
+        var dests =e.detail.value.dest;
+        var dzaddress =e.detail.value.dzaddress;
+        
         if (console.log("这是保存formid2"), console.log(e), app.util.request({
             url: "entry/wxapp/SaveFormid",
             cachetime: "0",
@@ -380,10 +388,7 @@ Page({
                 num: n
             });
             var i = t.data.money1;
-            
-            // 下面两行切换
-            // if ("1" == t.data.System.is_tzdz) var o = e.detail.value.dzaddress; else o = "";
-            var o = "";
+            if ("1" == t.data.System.is_tzdz) var o = e.detail.value.dzaddress; else o = "";
             console.log(o);
             var s = t.data.procedures;
             if (null == t.data.type) var c = 0; else c = t.data.type;
@@ -447,19 +452,23 @@ Page({
                         user_tel: f,
                         type2_id: x,
                         type_id: _,
-                        nnmm:e.detail.value.nnmm,
                         money: v,
                         type: c,
                         sz: u,
-                        address: o,
+                        // address: o,
+                        address:dzaddress,
                         hb_money: N,
                         hb_keyword: C,
                         hb_num: q,
                         hb_type: z,
                         hb_random: P,
                         cityname: a,
-                        anony:this.data.anony,
+                        price:prices,
+                        cost:costs,
+                        start:starts,
+                        dest:dests
                     },
+                    
                     success: function(e) {
                         console.log(e)
                         wx.showToast({
@@ -472,15 +481,16 @@ Page({
                                 fail: function(e) {},
                                 complete: function(e) {}
                             });
-                            // wx.reLaunch({
-                            //     url: "../../type/type",
+                            // wx.navigateBack({ 
+                            //     delta: 1,
                             //     success: function(e) {},
                             //     fail: function(e) {},
                             //     complete: function(e) {}
-                            // });
+                            // });this.onLoad()
                         }, 1e3);
                     }
-                }); else {
+                }); 
+                else {
                     // if (t.data.isios && "2" == t.data.System.is_pgzf) return void wx.showModal({
                     //     title: "暂不支持",
                     //     content: "由于相关规范，iOS功能暂不可用",
@@ -532,13 +542,18 @@ Page({
                                             money: v,
                                             type: c,
                                             sz: u,
-                                            address: o,
+                                            // address: o,
+                                            address:dzaddress,
                                             hb_money: N,
                                             hb_keyword: C,
                                             hb_num: q,
                                             hb_type: z,
                                             hb_random: P,
-                                            cityname: a
+                                            cityname: a,
+                                            price:prices,
+                                            cost:costs,
+                                            start:starts,
+                                            dest:dests
                                         },
                                         success: function(e) {
                                             0 == S || null == S || "" == S || app.util.request({
@@ -556,12 +571,19 @@ Page({
                                                 title: "信息成功",
                                                 mask: !0
                                             }), setTimeout(function() {
-                                                wx.reLaunch({
-                                                    url: "../../index/index",
+                                                // wx.reLaunch({
+                                                //     url: "../../index/index",
+                                                //     success: function(e) {},
+                                                //     fail: function(e) {},
+                                                //     complete: function(e) {}
+                                                // });
+                                                
+                                                wx.navigateBack({ 
+                                                    delta: 1,
                                                     success: function(e) {},
                                                     fail: function(e) {},
                                                     complete: function(e) {}
-                                                });
+                                                });this.onLoad()
                                             }, 1e3);
                                         }
                                     });

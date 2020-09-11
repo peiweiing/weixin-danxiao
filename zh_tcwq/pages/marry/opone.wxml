@@ -48,7 +48,7 @@
                     <image src="{{url}}{{item}}" wx:for="{{item.tz.img}}" wx:key="*this"></image>
                 </view>
                 <view class="content_chakan">
-                    <view class="content_info">{{item.tz.time}}发布</view>
+                    <view class="content_info">{{item.tz.time}}信息</view>
                     <view class="content_info" wx:if="{{item.tz.lat!=''}}">离你{{item.tz.juli}}</view>
                 </view>
                 <view class="content_liulan">
@@ -67,7 +67,7 @@
             <view class="none_info rel" wx:if="{{classification_info.length==0}}">
                 <image class="ab udlr" mode="aspectFill" src="../image/tie2.png"></image>
             </view>
-            <view style="color:#999;background:#fff;text-align:center;font-size:26rpx;padding:20rpx 0 60rpx 0;" wx:if="{{classification_info.length==0}}">该分类暂无发布的帖子</view>
+            <view style="color:#999;background:#fff;text-align:center;font-size:26rpx;padding:20rpx 0 60rpx 0;" wx:if="{{classification_info.length==0}}">该分类暂无信息的帖子</view>
         </view>
     </view>
 </scroll-view> -->
@@ -125,7 +125,7 @@
                     <image src="{{url}}{{item}}" wx:for="{{item.tz.img}}" wx:key="*this"></image>
                 </view>
                 <view class="content_chakan">
-                    <view class="content_info">{{item.tz.time}}发布</view>
+                    <view class="content_info">{{item.tz.time}}信息</view>
                     <view class="content_info" wx:if="{{item.tz.lat!=''}}">离你{{item.tz.juli}}</view>
                 </view>
                 <view class="content_liulan">
@@ -144,7 +144,7 @@
             <view class="none_info rel" wx:if="{{classification_info.length==0}}">
                 <image class="ab udlr" mode="aspectFill" src="../image/tie2.png"></image>
             </view>
-            <view style="color:#999;background:#fff;text-align:center;font-size:26rpx;padding:20rpx 0 60rpx 0;" wx:if="{{classification_info.length==0}}">该分类暂无发布的帖子</view>
+            <view style="color:#999;background:#fff;text-align:center;font-size:26rpx;padding:20rpx 0 60rpx 0;" wx:if="{{classification_info.length==0}}">该分类暂无信息的帖子</view>
         </view>
     </view>
 </scroll-view>
@@ -157,7 +157,7 @@
 </view>
 <view bindtap="hdft" class="comments border_three rel">
     <button></button>
-  发布
+  信息
 </view>
 <view class="comments border_four ">
   转发

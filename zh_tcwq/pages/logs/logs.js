@@ -119,6 +119,14 @@ Page({
             }
         });
     },
+    myfb: function(t) {
+        wx.navigateTo({
+            url: "../myfb/myfb",
+            success: function(t) {},
+            fail: function(t) {},
+            complete: function(t) {}
+        });
+    },
     my_post: function(t) {
         wx.navigateTo({
             url: "../mypost/mypost",

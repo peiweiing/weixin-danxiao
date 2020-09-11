@@ -74,7 +74,9 @@
     "zh_tcwq/pages/message/vfabu",
     "zh_tcwq/pages/settled/vsettled",
     "zh_tcwq/pages/marry/opone",
-    "zh_tcwq/pages/fabu/typefabu/typefabu"
+    "zh_tcwq/pages/fabu/typefabu/typefabu",
+    "zh_tcwq/pages/myfb/myfb",
+    "zh_tcwq/pages/fabu/edits/edits"
   ],
   "window": {
     "backgroundTextStyle": "light",

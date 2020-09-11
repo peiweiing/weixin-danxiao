@@ -1,5 +1,5 @@
 {
-    "navigationBarTitleText": "发布抢购商品",
+    "navigationBarTitleText": "信息抢购商品",
     "usingComponents": {
         "store-cell": "/zh_tcwq/component/store-cell",
         "wux-rater": "/zh_tcwq/component/rater"

@@ -46,7 +46,7 @@
             <view>
                 <text wx:for="{{accounts}}">{{item.name}}</text>
             </view>
-            <view>您的粉丝付费发布，置顶，刷新，入驻商户，加入合伙人等，您可获得提成
+            <view>您的粉丝付费信息，置顶，刷新，入驻商户，加入合伙人等，您可获得提成
         <text>{{accounts[accountIndex].djbl}}</text>,躺着就能赚钱。</view>
         </view>
         <view class="weui-btn-area">
