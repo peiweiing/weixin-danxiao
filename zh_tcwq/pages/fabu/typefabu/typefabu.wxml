@@ -39,12 +39,12 @@
             <switch bindchange="typeid6" checked="{{typeid}}"></switch>
         </view>
 
-        <input style="display:none" name="nnmm" value="1"></input>
+        <!-- <input style="display:none" name="nnmm" value="1"></input> -->
 
-        <view class="banner_list3 flex-center" wx:if="{{System.is_tzdz=='1'}}">
+        <!-- <view class="banner_list3 flex-center" wx:if="{{System.is_tzdz=='1'}}">
             <view class="banner_name">具体位置</view>
             <view style="flex:1">
-                <input name="dzaddress" placeholder="输入地址或点击地图选择-->" value="{{address}}"></input>
+                <input name="dzaddress" placeholder="输入地址或点击地图选择" value="{{address}}"></input>
             </view>
             <image bindtap="add" class="dt" src="../../image/address3.png"></image>
         </view>
@@ -65,7 +65,7 @@
             <view class="banner_text" wx:if="{{money>0}}">{{money}}元<text wx:if="{{System.is_qgb=='1'}}">({{countries[countryIndex]}})</text>
             </view>
             <view class="banner_text" wx:else>免费</view>
-        </view>
+        </view> -->
     </view>
     <!-- <view class="banner" hidden="{{isios&&System.is_pgzf=='2'}}">
         <view class="banner_fuli flex-bet">
