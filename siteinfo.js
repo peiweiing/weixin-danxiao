@@ -4,6 +4,6 @@ module.exports = {
     acid: "6",
     multiid: "0",
     version: "1.21",
-  siteroot: "https://jskh.lovehou.com/app/index.php",
+    siteroot: "https://jskh.lovehou.com/app/index.php",
     design_method: "3"
 };

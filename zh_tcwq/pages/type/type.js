@@ -14,7 +14,7 @@ var app = getApp(), Data = require("../../utils/util.js");
 Page((_defineProperty(_Page = {
     data: {
         foot: !1,
-        array: ['表白墙', '社团活动', '求助帖', '吐槽贴',"   "],
+        array: ['表白墙', '活动信息', '求助信息', '吐槽信息',"   "],
         shunfabu: [ "人找车", "车找人", "车找货", "货找车" ],
         release: [ {
             name: "人找车",

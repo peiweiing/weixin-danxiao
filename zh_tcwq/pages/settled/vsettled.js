@@ -84,8 +84,9 @@ Page({
           }),
           setTimeout(
             wx.reLaunch({
-              url: "../index/index"
-          }),2000)
+              // url: "../index/index"
+              url: res.data
+            }),2000)
         }
       })
 

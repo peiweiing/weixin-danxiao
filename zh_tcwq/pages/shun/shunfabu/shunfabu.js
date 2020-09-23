@@ -211,14 +211,14 @@ Page({
                 cityname: a
             },
             success: function(t) {
-                console.log(t), wx.showToast({
+                console.log("发布成功1",t), wx.showToast({
                     title: "信息成功",
                     icon: "",
                     image: "",
                     duration: 2e3,
                     mask: !0,
                     success: function(t) {
-                        console.log(chenggong1)
+                        console.log(chenggong1);
                     },
                     fail: function(t) {},
                     complete: function(t) {}
@@ -226,7 +226,8 @@ Page({
                     wx.reLaunch({
                        //url: "../marry/opone?id=" + tid + "&name=" + a,
                     //    url: "../../shun/shun",
-                     url: "../../index/index",
+                    //  url: "../../index/index",
+                     url: t.data,
                     })
                 // wx.navigateBack({
                 //     url: "../../shun/shun",
@@ -287,7 +288,7 @@ Page({
                                     cityname: a
                                 },
                                 success: function(t) {
-                                    console.log(t), app.util.request({
+                                    console.log("发布成功2",t), app.util.request({
                                         url: "entry/wxapp/SaveCarPayLog",
                                         cachetime: "0",
                                         data: {
@@ -314,7 +315,8 @@ Page({
                                             wx.reLaunch({
                                                //url: "../marry/opone?id=" + tid + "&name=" + a,
                                             //    url: "../shun/shun",
-                                             url: "../index/index",
+                                            //  url: "../index/index",
+                                             url: t.data,
                                             })
                                         // wx.navigateBack({
                                         //     url: "../../shun/shun",

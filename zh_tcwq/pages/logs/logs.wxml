@@ -87,10 +87,6 @@
             <image class="list_allimg" src="../image/mine.png"></image>
             <view class="list_alltext">我的报名</view>
         </view>
-        <view bindtap="mine_car" class="banner_list" wx:if="{{System.is_pcfw==1&&System.is_pcqx==1}}">
-            <image class="list_allimg" src="../image/mine_car.png"></image>
-            <view class="list_alltext">我的拼车</view>
-        </view>
         <view bindtap="yellow_page" class="banner_list" wx:if="{{System.is_pageopen==1&&System.is_hyqx==1}}">
             <image class="list_allimg" src="../image/mine_yellow.png"></image>
             <view class="list_alltext">我的{{System.hy_title}}</view>

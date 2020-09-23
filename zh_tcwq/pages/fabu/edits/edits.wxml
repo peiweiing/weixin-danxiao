@@ -2,7 +2,7 @@
     <view class="content">
         <view class="content_miao">内容描述</view>
         <view class="miaoshu_box">
-            <textarea class="miaoshu" maxlength="540" name="content" placeholder="请输入内容描述（最多540字符" value="{{arr[0].details}}"></textarea>
+            <textarea class="miaoshu" maxlength="540" name="content" placeholder="请输入内容描述（最多540字符)" value="{{arr[0].details}}"></textarea>
         </view>
     </view>
     <view class="upload">

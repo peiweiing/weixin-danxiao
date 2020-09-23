@@ -77,7 +77,8 @@ Page({
             //    url: "../marry/opone?id=1" + "&name=" + "勤工俭学",
             // })
             wx.reLaunch({
-              url: "../index/index",
+              // url: "../index/index",
+              url: res.data,
            })
           }, 1500);
           console.log(res); 

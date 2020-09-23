@@ -34,7 +34,7 @@
     /* border-bottom:1px solid #e2e1e1; */
   }
   .topChild{
-    width:30%;
+    width:33%;
     /* height:48px; */
     text-align: center;
     /* line-height: 3.4; */
